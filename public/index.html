@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <title>Ajax Demo</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function(){
+        $.getJSON("http://localhost:3000/api/v1/film/all", (result)=>{
+          $.each(result, (i, field) => {
+            var title = "<div class='film'><h2 film_id="
+              +field.film_id
+              +">"+field.title+"</h2>"
+              +"<div class='info' hidden='true'>" + field.description
+              +"<br />Rating: "
+              + field.rating
+              + "</div></div>";
+            $("#list").append(title);
+          });
+          $('.film').on('click', function(){
+            if ($(this).children('.info').is(':hidden')){
+              $('.info').hide();
+              $(this).children('.info').show();
+            } else {
+              $(this).children('.info').hide();
+            }
+
+          });
+        });
+      });
+  </script>
+</head>
+
+<body>
+  <h1> Sakila Films </h1>
+  <div id='list'></div>
+</body>
+
+</html>
