@@ -23,4 +23,4 @@ IE: http://localhost:3000/api/v1/film/100
 API endpoint for all films with specific Rating
 http://localhost:3000/api/v1/film/rating/<rating>
 (The sample database uses G, PG, PG-13, R, and NC-17)
-IE: http://localhost:3000/api/v1/rating/pg-13
+IE: http://localhost:3000/api/v1/film/rating/pg-13
