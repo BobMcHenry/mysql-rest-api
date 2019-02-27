@@ -7,6 +7,7 @@
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
     $(document).ready(function(){
+      alert();
         $.getJSON("http://localhost:3000/api/v1/film/all", (result)=>{
           $.each(result, (i, field) => {
             var title = "<div class='film'><h3 film_id="
@@ -15,6 +16,8 @@
               +"<div class='info' hidden='true'>" + field.description
               +"<br />Rating: "
               + field.rating
+              +"<br />Release Year: "
+              + field.release_year
               + "</div></div>";
             $("#list").append(title);
           });
